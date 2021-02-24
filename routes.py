@@ -21,8 +21,11 @@ def cadastraUsuario():
 
     if("senha" not in body):
         return geraResponse(400, "O parametro senha é obrigatório")
+    
+    if("telefone" not in body):
+        return geraResponse(400, "O parametro telefone é obrigatório")
 
-    usuario = insertUsuario(body["nome"], body["email"], body["senha"])
+    usuario = insertUsuario(body["nome"], body["email"], body["senha"], body["telefone"])
 
     return geraResponse(200, "Usuario criado", "user", usuario)
 
